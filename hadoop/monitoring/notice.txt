@@ -1,0 +1,12 @@
+1）zookeeper的自动拉起
+由于crontab不会读取环境变量，所以需要在bin/zkServer.sh中显示设置JAVA_HOME环境
+
+export JAVA_HOME=/usr/local/jdk
+
+2)hdfs做ha时必须确保两台主机，互相能ssh无密码登录
+
+# copy public key到需要无密码登录的机器
+ssh-copy-id -i .ssh/id_rsa.pub hadoop2@demain1
+
+3）dos格式文件转换为unix格式
+sed -i 's/\r$//' input.txt
